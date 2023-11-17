@@ -1,4 +1,4 @@
-module github.com/abitofhelp/bazel_go
+module github.com/abitofhelp/bazel_go/cmd
 
 go 1.21.3
 

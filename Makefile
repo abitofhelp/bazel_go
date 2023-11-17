@@ -9,7 +9,7 @@ BAZEL_BUILD_OPTS:=--verbose_failures --sandbox_debug
 GOCMD=$(BZLCMD) run @io_bazel_rules_go//go
 CMD_DIR=$(PROJECT_DIR)/cmd
 CMD_WORKSPACE=//cmd
-CMD_TARGET=$(CMD_WORKSPACE):bazel_go_cmd
+CMD_TARGET=$(CMD_WORKSPACE):cmd
 
 build_all:
 	$(BZLCMD) build $(BAZEL_BUILD_OPTS) //...
@@ -88,7 +88,7 @@ set_golang_version:
 
 ## The generate_repos at the end of the command string is not an error.
 ## Verify the BUILD.bazel files that have been changed.  It is possible that duplicate targets were created.
-sync_from_gomod: go_mod_download go_mod_tidy go_mod_vendor go_mod_verify gazelle_update_repos generate_repos
+sync_from_gomod: go_mod_download go_mod_tidy go_mod_vendor go_mod_verify gazelle_update_repos gazelle_generate_repos
 
 unit_test:
 	$(BZLCMD) test --test_output=all --test_verbose_timeout_warnings "//cmd:cmd_test"
