@@ -6,16 +6,20 @@ load("@bazel_gazelle//:def.bzl", "gazelle")
 # gazelle:exclude vendor
 gazelle(name = "gazelle")
 
-load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
 
 go_library(
     name = "cmd_lib",
     srcs = glob(["**/*.go"]),
     importpath = "github.com/abitofhelp/bazel_go/cmd",
-    deps = ["@com_github_dustin_go_humanize//:go-humanize"],
+    deps = [],
 )
 
 go_binary(
     name = "cmd",
     embed = [":cmd_lib"],
+)
+
+go_test(
+    name = "cmd_test",
 )
