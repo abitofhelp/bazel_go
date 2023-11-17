@@ -1,8 +1,8 @@
 # Makefile
 
 PROJECT_NAME=bazel_go
-PROJECT_DIR=$(GOPATH)/src/github.com/abitofhelp/$(PROJECT_NAME)
-MODULE_NAME=github.com/abitofhelp/$(PROJECT_NAME)
+MODULE_NAME=github.com/ingios/$(PROJECT_NAME)
+PROJECT_DIR=$(GOPATH)/src/$(MODULE_NAME)
 
 BZLCMD=bazel
 BAZEL_BUILD_OPTS:=--verbose_failures --sandbox_debug
