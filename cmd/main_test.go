@@ -6,6 +6,5 @@ import (
 )
 
 func Test_getHowdyMessage(t *testing.T) {
-	assert.Equal(t, "Howdy!", GetHowdyMessage(), "should be equal")
-
+	assert.Equal(t, "Howdy!", GetMessage(), "should be equal")
 }
